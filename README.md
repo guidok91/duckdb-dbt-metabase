@@ -1,4 +1,4 @@
-# DuckDB & dbt: aviation data model
+# Aviation analytics with DuckDB, dbt and AirLabs
 Aviation analytics project with [DuckDB](https://duckdb.org/) and [dbt](https://docs.getdbt.com/docs/introduction) using the data from [AirLabs API](https://airlabs.co).
 
 ## Running instructions
