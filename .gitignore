@@ -135,4 +135,5 @@ poetry.toml
 .vscode
 
 # DuckDB
-db/database.duckdb
+data/*
+!data/*.json
