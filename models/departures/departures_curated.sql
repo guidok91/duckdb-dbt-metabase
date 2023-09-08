@@ -11,6 +11,6 @@ SELECT
     arr_time,
     arr_time_utc,
     days,
-    current_timestamp AS processed_timestamp
+    CURRENT_TIMESTAMP AS processed_timestamp
 FROM
     {{ ref('departures_raw') }}
