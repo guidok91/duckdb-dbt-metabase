@@ -1,5 +1,5 @@
 aviation_analytics_dbt:
-  target: dev
+  target: "{{ env_var('ENV') }}"
   outputs:
     dev:
       type: duckdb
