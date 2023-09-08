@@ -39,3 +39,8 @@ dbt-run: # Run dbt models.
 .PHONY: dbt-test
 dbt-test: # Test dbt models.
 	dbt test
+
+.PHONY: clean
+clean: # Clean auxiliary files.
+	dbt clean
+	rm -rf logs .user.yml
