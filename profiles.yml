@@ -1,0 +1,6 @@
+aviation_analytics_dbt:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: /duckdb-dbt/data/aviation.duckdb

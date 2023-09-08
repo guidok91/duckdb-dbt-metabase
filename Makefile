@@ -20,7 +20,7 @@ departures-download: # Download departures data from the AirLabs API.
 
 .PHONY: departures-ingest
 departures-ingest: # Ingest departures data from the downloaded API dataset into DuckDB.
-	duckdb data/database.duckdb -c "create or replace table departures as \
+	duckdb data/aviation.duckdb -c "create or replace table main.departures_raw as \
 	with response as ( \
 		select unnest(response) as data \
 		from 'data/departures_eze.json' \
@@ -29,4 +29,12 @@ departures-ingest: # Ingest departures data from the downloaded API dataset into
 
 .PHONY: duckdb
 duckdb: # Run DuckDB console.
-	duckdb data/database.duckdb
+	duckdb data/aviation.duckdb
+
+.PHONY: dbt-run
+dbt-run: # Run dbt models.
+	dbt run
+
+.PHONY: dbt-test
+dbt-test: # Test dbt models.
+	dbt test

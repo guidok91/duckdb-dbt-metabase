@@ -137,3 +137,9 @@ poetry.toml
 # DuckDB
 data/*
 !data/*.json
+
+# dbt
+target/
+dbt_packages/
+logs/
+.user.yml
