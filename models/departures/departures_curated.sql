@@ -11,4 +11,4 @@ SELECT
     arr_time,
     arr_time_utc,
     days
-FROM {{ source('aviation', 'departures_raw') }}
+FROM {{ ref('departures_raw') }}

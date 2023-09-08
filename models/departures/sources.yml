@@ -1,8 +1,0 @@
-version: 2
-
-sources:
-  - name: aviation
-    database: aviation  
-    schema: main  
-    tables:
-      - name: departures_raw

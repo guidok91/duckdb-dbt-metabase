@@ -19,15 +19,6 @@ run: # Run Docker container in interactive mode.
 departures-download: # Download departures data from the AirLabs API.
 	curl "https://airlabs.co/api/v9/routes?dep_iata=EZE&api_key=${AIRLABS_API_KEY}" > data/departures_eze.json
 
-.PHONY: departures-ingest
-departures-ingest: # Ingest departures data from the downloaded API dataset into DuckDB.
-	duckdb data/aviation.duckdb -c "create or replace table main.departures_raw as \
-	with response as ( \
-		select unnest(response) as data \
-		from 'data/departures_eze.json' \
-	) \
-	select data.* from response;"
-
 .PHONY: duckdb
 duckdb: # Run DuckDB console.
 	duckdb data/aviation.duckdb
@@ -43,4 +34,4 @@ dbt-test: # Test dbt models.
 .PHONY: clean
 clean: # Clean auxiliary files.
 	dbt clean
-	rm -rf logs .user.yml
+	rm -rf logs .user.yml data/*.duckdb

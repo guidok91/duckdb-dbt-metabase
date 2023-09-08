@@ -2,6 +2,7 @@
 version: 2
 
 models:
+  - name: departures_raw
   - name: departures_curated
     columns:
       - name: airline_iata
