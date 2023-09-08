@@ -10,7 +10,7 @@ build: # Build Docker image for the project.
 run: # Run Docker container in interactive mode.
 	docker run \
 	--platform linux/x86_64 \
-	-v ./data:/data \
+	-v ./:/duckdb-dbt \
 	-e AIRLABS_API_KEY=${AIRLABS_API_KEY} \
 	--rm -it duckdb-dbt bash
 
