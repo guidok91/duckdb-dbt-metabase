@@ -13,3 +13,9 @@ You can then run `make duckdb` to play around with the datasets in the DuckDB co
 
 (*) Note: step 3 is optional (there is already a [downloaded dataset available](data/departures_eze.json)).  
 If you would like to run this step to get fresh data, please generate an AirLabs API key (see how to on their website) and set the `AIRLABS_API_KEY` env variable.
+
+## TO DO
+- Ingest data using dbt macro.
+- Add tests.
+- Add CI/CD with Github actions.
+- Create more models for more interesting analytics.
