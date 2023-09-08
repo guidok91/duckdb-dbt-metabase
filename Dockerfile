@@ -19,3 +19,5 @@ RUN apt-get update -q -y && \
 
 # Install dbt with DuckDB plugin
 RUN pip install --upgrade pip setuptools wheel dbt-duckdb==${DBT_VERSION}
+
+COPY . .
