@@ -4,29 +4,27 @@ models:
   - name: departures_raw
   - name: departures_curated
     columns:
-      - name: airline_iata
+      - name: airline_iata_code
         description: "IATA code of the airline"
-      - name: flight_number
-        description: "Flight number"
-      - name: flight_iata
+      - name: flight_number_iata_code
         description: "IATA code of the flight"
-      - name: dep_iata
+      - name: departure_airport_iata_code
         description: "IATA code of the origin airport"
-      - name: dep_terminals
+      - name: departure_terminals
         description: "Departure terminals"
-      - name: dep_time
+      - name: departure_time_local
         description: "Departure time (local)"
-      - name: dep_time_utc
+      - name: departure_time_utc
         description: "Departure time (UTC)"
-      - name: arr_iata
+      - name: arrival_airport_iata_code
         description: "IATA code of the destination airport"
-      - name: arr_terminals
+      - name: arrival_terminals
         description: "Arrival terminals"
-      - name: arr_time
+      - name: arrival_time_local
         description: "Arrival time (local)"
-      - name: arr_time_utc
+      - name: arrival_time_utc
         description: "Arrival time (UTC)"
-      - name: days
+      - name: flight_days
         description: "Days of the week when flight takes place"
       - name: processed_timestamp
         description: "Timestamp indicating when the record was processed"
