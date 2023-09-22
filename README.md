@@ -10,7 +10,7 @@ Run the following commands in order:
 
 You can then run `make duckdb` to play around with the datasets in the DuckDB console.
 
-(*) Note: step 3 is optional (there is already a [downloaded dataset available](data/departures_eze.json)).  
+(*) This step is optional (there is already a [downloaded dataset available](data/departures_eze.json)).  
 If you would like to run this step to get fresh data, please generate an AirLabs API key (see how to on their website) and set the `AIRLABS_API_KEY` env variable.
 
 ## TO DO
