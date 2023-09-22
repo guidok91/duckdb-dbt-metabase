@@ -2,7 +2,7 @@ WITH response AS (
     SELECT
         UNNEST(response) AS data
     FROM
-        '/duckdb-dbt/data/departures_eze.json'
+        {{ source('airlabs_api_data', 'departures_eze') }}
 )
 SELECT
     data.*
