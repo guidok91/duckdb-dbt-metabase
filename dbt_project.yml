@@ -4,10 +4,6 @@ config-version: 2
 
 profile: 'aviation_analytics_dbt_duckdb'
 
-model-paths: ["models"]
-test-paths: ["tests"]
-macro-paths: ["macros"]
-
 vars:
   'dbt_date:time_zone': 'UTC'
 
