@@ -8,6 +8,9 @@ model-paths: ["models"]
 test-paths: ["tests"]
 macro-paths: ["macros"]
 
+vars:
+  'dbt_date:time_zone': 'UTC'
+
 clean-targets:
   - "target"
   - "dbt_packages"
