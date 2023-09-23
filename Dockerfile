@@ -9,7 +9,7 @@ WORKDIR /duckdb-dbt
 ADD https://github.com/duckdb/duckdb/releases/download/v${DUCKDB_VERSION}/duckdb_cli-linux-amd64.zip .
 
 RUN apt-get update -q -y && \
-    apt-get install -y unzip curl make vim && \
+    apt-get install -y unzip curl make vim git-all && \
     apt-get clean -q -y && \
     apt-get autoclean -q -y && \
     apt-get autoremove -q -y && \
@@ -18,6 +18,6 @@ RUN apt-get update -q -y && \
     rm duckdb_cli-linux-amd64.zip
 
 # Install dbt with DuckDB plugin
-RUN pip install --upgrade pip setuptools wheel dbt-duckdb==${DBT_VERSION}
+RUN pip install --upgrade pip setuptools wheel dbt-duckdb==${DBT_VERSION} pre-commit==3.4.0
 
 COPY . .
