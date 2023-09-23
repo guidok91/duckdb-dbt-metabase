@@ -18,6 +18,6 @@ RUN apt-get update -q -y && \
     rm duckdb_cli-linux-amd64.zip
 
 # Install dbt with DuckDB plugin
-RUN pip install --upgrade pip setuptools wheel dbt-duckdb==${DBT_VERSION} pre-commit==3.4.0
+RUN pip install --upgrade pip setuptools wheel dbt-duckdb==${DBT_VERSION} pre-commit==3.4.0 sqlfluff-templater-dbt==2.3.2
 
 COPY . .
