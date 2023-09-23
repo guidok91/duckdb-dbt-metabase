@@ -3,6 +3,11 @@ version: 2
 models:
   - name: departures_raw
   - name: departures_curated
+    tests:
+      - dbt_expectations.expect_table_row_count_to_be_between:
+          min_value: 1
+      - dbt_expectations.expect_table_column_count_to_equal:
+          value: 12
     columns:
       - name: airline_iata_code
         description: "IATA code of the airline"
@@ -82,3 +87,6 @@ models:
           - dbt_expectations.expect_column_values_to_not_be_null
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: timestamp with time zone
+          - dbt_expectations.expect_row_values_to_have_recent_data:
+              datepart: day
+              interval: 1
