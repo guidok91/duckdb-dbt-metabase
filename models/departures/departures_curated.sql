@@ -3,12 +3,12 @@ SELECT
     flight_iata AS flight_number_iata_code,
     dep_iata AS departure_airport_iata_code,
     dep_terminals AS departure_terminals,
-    CAST(dep_time || ':00' AS TIME) AS departure_time_local,
-    CAST(dep_time_utc || ':00' AS TIME) AS departure_time_utc,
+    {{ convert_time('dep_time') }} AS departure_time_local,
+    {{ convert_time('dep_time_utc') }}  AS departure_time_utc,
     arr_iata AS arrival_airport_iata_code,
     arr_terminals AS arrival_terminals,
-    CAST(arr_time || ':00' AS TIME) AS arrival_time_local,
-    CAST(arr_time_utc || ':00' AS TIME) AS arrival_time_utc,
+    {{ convert_time('arr_time') }}  AS arrival_time_local,
+    {{ convert_time('arr_time_utc') }}  AS arrival_time_utc,
     days AS flight_days,
     CURRENT_TIMESTAMP AS processed_timestamp
 FROM
