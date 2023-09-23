@@ -1,0 +1,19 @@
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v4.4.0
+  hooks:
+  - id: check-yaml
+  - id: end-of-file-fixer
+  - id: trailing-whitespace
+- repo: local
+  hooks:
+  - id: sqlfluff-lint
+    name: sqlfluff-lint
+    language: system
+    entry: sqlfluff lint --dialect duckdb
+    pass_filenames: false
+  - id: sqlfluff-fix
+    name: sqlfluff-fix
+    language: system
+    entry: sqlfluff fix --dialect duckdb
+    pass_filenames: false
