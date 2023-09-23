@@ -23,6 +23,10 @@ departures-download: # Download departures data from the AirLabs API.
 duckdb: # Run DuckDB console.
 	duckdb data/aviation.duckdb
 
+.PHONY: dbt-deps
+dbt-deps: # Install dbt deps.
+	dbt deps
+
 .PHONY: dbt-run
 dbt-run: # Run dbt models.
 	dbt run
