@@ -16,6 +16,5 @@ You can then run `make duckdb` to play around with the datasets in the DuckDB co
 If you would like to run this step to get fresh data, please generate an AirLabs API key (see how to on their website) and set the `AIRLABS_API_KEY` env variable.
 
 ## TO DO
-- Add linting.
 - Add CI/CD with Github actions.
 - Create more models for more interesting analytics.

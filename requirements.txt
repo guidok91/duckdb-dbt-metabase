@@ -1,0 +1,3 @@
+dbt-duckdb==1.6
+pre-commit==3.4.0
+sqlfluff-templater-dbt==2.3.2

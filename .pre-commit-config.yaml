@@ -10,10 +10,10 @@ repos:
   - id: sqlfluff-lint
     name: sqlfluff-lint
     language: system
-    entry: sqlfluff lint
-    args: [--dialect=duckdb]
+    entry: sqlfluff lint --dialect duckdb
+    pass_filenames: false
   - id: sqlfluff-fix
     name: sqlfluff-fix
     language: system
-    entry: sqlfluff fix
-    args: [--dialect=duckdb]
+    entry: sqlfluff fix --dialect duckdb
+    pass_filenames: false
