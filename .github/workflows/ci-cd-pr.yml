@@ -21,7 +21,7 @@ jobs:
         python-version: 3.11
 
     - name: Install dependencies
-      run: make deps && make dbt-deps
+      run: sudo make deps && make dbt-deps
 
     - name: Run linter
       run: make lint
