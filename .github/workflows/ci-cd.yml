@@ -1,0 +1,36 @@
+name: CI/CD
+
+on: push
+
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  ENV: dev
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.11
+
+    - name: Install dependencies
+      run: sudo make deps && make dbt-deps
+
+    - name: Run linter
+      run: make lint
+
+    - name: Run dbt models
+      run: make dbt-run
+
+    - name: Run tests
+      run: make dbt-test
