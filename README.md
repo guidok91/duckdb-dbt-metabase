@@ -16,7 +16,7 @@ You can then run `make duckdb` to play around with the datasets in the DuckDB co
 If you would like to run this step to get fresh data, please generate an AirLabs API key (see how to on their website) and set the `AIRLABS_API_KEY` env variable.
 
 ## CI/CD
-A Github Actions CI/CD pipeline that runs tests/linting is defined [here](.github/workflows) and can be seen [here](https://github.com/guidok91/spark-movies-etl/actions).
+A Github Actions CI/CD pipeline that runs tests/linting is defined [here](.github/workflows) and can be seen [here](https://github.com/guidok91/duckdb-dbt/actions).
 
 
 ## TO DO
