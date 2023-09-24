@@ -8,7 +8,6 @@ concurrency:
 
 env:
   ENV: dev
-  DUCKDB_DATA_PATH: ./data
 
 jobs:
   test:
