@@ -1,4 +1,6 @@
 # Aviation analytics with DuckDB, dbt and AirLabs
+![workflow](https://github.com/guidok91/duckdb-dbt/actions/workflows/ci-cd.yml/badge.svg)
+
 Aviation analytics project with [DuckDB](https://duckdb.org/) and [dbt](https://docs.getdbt.com/docs/introduction) using the data from [AirLabs API](https://airlabs.co).
 
 ## Running instructions
