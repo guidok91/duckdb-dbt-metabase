@@ -13,7 +13,7 @@ run: # Run Docker container in interactive mode.
 	-v ./:/duckdb-dbt \
 	-e AIRLABS_API_KEY=${AIRLABS_API_KEY} \
 	-e ENV="dev" \
-	-e DUCKDB_DATABASE_PATH="/duckdb-dbt/data/aviation.duckdb" \
+	-e DUCKDB_DATA_PATH="/duckdb-dbt/data" \
 	--rm -it duckdb-dbt bash
 
 .PHONY: deps

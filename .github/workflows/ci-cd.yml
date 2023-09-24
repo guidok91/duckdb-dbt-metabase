@@ -8,7 +8,7 @@ concurrency:
 
 env:
   ENV: dev
-  DUCKDB_DATABASE_PATH: ./aviation.duckdb
+  DUCKDB_DATA_PATH: .
 
 jobs:
   test:

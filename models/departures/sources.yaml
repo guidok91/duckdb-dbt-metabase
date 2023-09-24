@@ -4,7 +4,7 @@ sources:
   - name: airlabs_api_data
     description: Raw datasets ingested from the AirLabs API.
     meta:
-      external_location: "/duckdb-dbt/data/{name}.json"
+      external_location: "{{ env_var('DUCKDB_DATA_PATH') }}/{name}.json"
     tables:
       - name: departures_eze
         description: Dataset containing departures data from EZE airport.
