@@ -8,6 +8,7 @@ concurrency:
 
 env:
   ENV: dev
+  DUCKDB_DATABASE_PATH: .
 
 jobs:
   test:
@@ -24,7 +25,7 @@ jobs:
         python-version: 3.11
 
     - name: Install dependencies
-      run: sudo mkdir -p /duckdb-dbt/data && sudo make deps && make dbt-deps
+      run: sudo make deps && make dbt-deps
 
     - name: Run linter
       run: make lint
