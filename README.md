@@ -39,7 +39,7 @@ ORDER BY
 LIMIT 10;
 ```
 
-### Countries with the highest number of airports 
+### Countries with the highest number of airports
 ```sql
 SELECT
     country_code,
