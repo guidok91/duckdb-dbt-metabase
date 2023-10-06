@@ -29,7 +29,6 @@ ingest-source-data: # Download raw data from the AirLabs API.
 	curl "https://airlabs.co/api/v9/routes?dep_iata=EZE&api_key=${AIRLABS_API_KEY}" > data/source/routes.json
 	curl "https://airlabs.co/api/v9/airlines?api_key=${AIRLABS_API_KEY}" > data/source/airlines.json
 	curl "https://airlabs.co/api/v9/airports?api_key=${AIRLABS_API_KEY}" > data/source/airports.json
-	curl "https://airlabs.co/api/v9/taxes?api_key=${AIRLABS_API_KEY}" > data/source/taxes.json
 
 .PHONY: duckdb
 duckdb: # Run DuckDB console.

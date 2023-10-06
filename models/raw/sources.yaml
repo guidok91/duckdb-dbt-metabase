@@ -8,3 +8,7 @@ sources:
     tables:
       - name: routes
         description: Dataset containing routes data.
+      - name: airlines
+        description: Dataset containing airlines data.
+      - name: airports
+        description: Dataset containing airports data.
