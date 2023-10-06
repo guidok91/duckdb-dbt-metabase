@@ -39,5 +39,19 @@ ORDER BY
 LIMIT 10;
 ```
 
+### Countries with the highest number of airports 
+```sql
+SELECT
+    country_code,
+    COUNT(*)
+FROM
+    curated.airports
+GROUP BY
+    country_code
+ORDER BY
+    count(*) DESC
+LIMIT 10;
+```
+
 ## CI/CD
 A Github Actions CI/CD pipeline that runs tests/linting is defined [here](.github/workflows) and can be seen [here](https://github.com/guidok91/duckdb-dbt/actions).
