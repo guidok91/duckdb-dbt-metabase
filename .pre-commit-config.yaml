@@ -15,5 +15,5 @@ repos:
   - id: sqlfluff-fix
     name: sqlfluff-fix
     language: system
-    entry: sqlfluff fix --dialect duckdb
+    entry: sqlfluff fix --dialect duckdb --force
     pass_filenames: false
