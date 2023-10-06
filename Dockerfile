@@ -10,4 +10,4 @@ RUN apt-get update -q -y && \
 
 COPY . .
 
-RUN make deps
+RUN make deps && git config --global --add safe.directory /duckdb-dbt

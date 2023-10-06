@@ -1,7 +1,7 @@
 WITH response AS (
     SELECT UNNEST(response) AS cols
     FROM
-        {{ source('airlabs_api_data', 'departures_eze') }}
+        {{ source('airlabs_api_data', 'routes') }}
 )
 
 SELECT cols.*  -- noqa: AM04,RF01

@@ -12,7 +12,7 @@ SELECT
     days AS flight_days,
     CURRENT_TIMESTAMP AS processed_timestamp
 FROM
-    {{ ref('departures_raw') }}
+    {{ ref('routes_raw') }}
 WHERE
     airline_iata_code IS NOT NULL
     AND flight_number_iata_code IS NOT NULL
