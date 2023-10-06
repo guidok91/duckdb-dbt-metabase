@@ -1,3 +1,7 @@
+{{ config(
+    alias='routes'
+) }}
+
 SELECT
     airline_iata AS airline_iata_code,
     flight_iata AS flight_number_iata_code,

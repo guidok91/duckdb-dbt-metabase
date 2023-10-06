@@ -22,5 +22,4 @@ A Github Actions CI/CD pipeline that runs tests/linting is defined [here](.githu
 
 ## TO DO
 - Add dbt checkpoint and/or dbt project evaluator.
-- Use different schemas for raw/curated.
 - Create more models for more interesting analytics.
