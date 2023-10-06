@@ -13,5 +13,8 @@ clean-targets:
 
 models:
   aviation_analytics_dbt:
-    routes:
-      +materialized: table
+    +materialized: table
+    curated:
+      +schema: curated
+    raw:
+      +schema: raw

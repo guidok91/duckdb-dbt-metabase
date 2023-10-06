@@ -1,3 +1,7 @@
+{{ config(
+    alias='routes'
+) }}
+
 WITH response AS (
     SELECT UNNEST(response) AS cols
     FROM

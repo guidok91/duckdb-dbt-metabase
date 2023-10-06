@@ -1,7 +1,6 @@
 version: 2
 
 models:
-  - name: routes_raw
   - name: routes_curated
     tests:
       - dbt_expectations.expect_table_row_count_to_be_between:
