@@ -13,7 +13,7 @@ To start with, you can run the following commands in order:
 - `make dbt-deps`
 - `make dbt-run`
 
-(*) This step is optional (there are already [downloaded datasets available](data)).
+(*) This step is optional (there are already [downloaded datasets available](data/source)).
 If you would like to run this step to get fresh data, please generate an AirLabs API key (see how to on their website) and set the `AIRLABS_API_KEY` env variable.
 
 ## Data exploration
