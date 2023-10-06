@@ -6,5 +6,5 @@ sources:
     meta:
       external_location: "data/{name}.json"
     tables:
-      - name: departures_eze
-        description: Dataset containing departures data from EZE airport.
+      - name: routes
+        description: Dataset containing routes data.

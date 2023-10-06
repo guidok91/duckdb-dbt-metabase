@@ -13,5 +13,5 @@ clean-targets:
 
 models:
   aviation_analytics_dbt:
-    departures:
+    routes:
       +materialized: table
