@@ -12,5 +12,3 @@ sources:
         description: Dataset containing airlines data.
       - name: airports
         description: Dataset containing airports data.
-      - name: taxes
-        description: Dataset containing taxes data.
