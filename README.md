@@ -7,7 +7,7 @@ Aviation analytics project with [DuckDB](https://duckdb.org/) and [dbt](https://
 Run the following commands in order:
 1. `make build` to build the Docker image locally.
 2. `make run` to start a local container.
-3. `make data-download` to download the raw data from the rest API into a local JSON dataset (*).
+3. `make ingest-source-data` to download the raw data from the rest API into a local JSON dataset (*).
 4. `make dbt-deps` to install the required dbt deps.
 5. `make dbt-run` to run the dbt models that process the data.
 6. `make dbt-test` to run the tests.
@@ -21,5 +21,4 @@ If you would like to run this step to get fresh data, please generate an AirLabs
 A Github Actions CI/CD pipeline that runs tests/linting is defined [here](.github/workflows) and can be seen [here](https://github.com/guidok91/duckdb-dbt/actions).
 
 ## TO DO
-- Add dbt checkpoint and/or dbt project evaluator.
 - Create more models for more interesting analytics.
