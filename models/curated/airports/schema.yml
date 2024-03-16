@@ -57,7 +57,7 @@ models:
           - dbt_expectations.expect_column_values_to_not_be_null
           - dbt_expectations.expect_column_value_lengths_to_equal:
               value: 2
-              
+
       - name: processed_timestamp
         description: "Timestamp indicating when the record was processed"
         tests:
