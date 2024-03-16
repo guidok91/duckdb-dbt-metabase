@@ -13,6 +13,7 @@ jobs:
   test:
     name: Test
     runs-on: ubuntu-latest
+    options: --user root
     timeout-minutes: 15
     steps:
     - name: Checkout code
