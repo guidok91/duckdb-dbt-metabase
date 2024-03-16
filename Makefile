@@ -17,7 +17,7 @@ run: # Run Docker container in interactive mode.
 
 .PHONY: deps
 deps: # Install deps (DuckDB, dbt, etc).
-	curl -LO https://github.com/duckdb/duckdb/releases/download/v0.9.0/duckdb_cli-linux-amd64.zip
+	curl -LO https://github.com/duckdb/duckdb/releases/download/v0.10.0/duckdb_cli-linux-amd64.zip
 	unzip duckdb_cli-linux-amd64.zip
 	mv duckdb /usr/bin
 	rm duckdb_cli-linux-amd64.zip
