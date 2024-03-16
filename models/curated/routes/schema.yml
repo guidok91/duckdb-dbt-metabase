@@ -2,11 +2,13 @@ version: 2
 
 models:
   - name: routes_curated
+
     tests:
       - dbt_expectations.expect_table_row_count_to_be_between:
           min_value: 1
       - dbt_expectations.expect_table_column_count_to_equal:
           value: 12
+
     columns:
       - name: airline_iata_code
         description: "IATA code of the airline"
@@ -16,6 +18,7 @@ models:
           - dbt_expectations.expect_column_values_to_not_be_null
           - dbt_expectations.expect_column_value_lengths_to_equal:
               value: 2
+
       - name: flight_number_iata_code
         description: "IATA code of the flight"
         tests:
@@ -24,6 +27,7 @@ models:
           - dbt_expectations.expect_column_values_to_not_be_null
           - dbt_expectations.expect_column_values_to_match_regex:
               regex: "^[A-Z]+[0-9]+"
+
       - name: departure_airport_iata_code
         description: "IATA code of the origin airport"
         tests:
@@ -32,23 +36,27 @@ models:
           - dbt_expectations.expect_column_values_to_not_be_null
           - dbt_expectations.expect_column_value_lengths_to_equal:
               value: 3
+
       - name: departure_terminals
         description: "Departure terminals"
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: varchar[]
+
       - name: departure_time_local
         description: "Departure time (local)"
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: time
           - dbt_expectations.expect_column_values_to_not_be_null
+
       - name: departure_time_utc
         description: "Departure time (UTC)"
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: time
           - dbt_expectations.expect_column_values_to_not_be_null
+
       - name: arrival_airport_iata_code
         description: "IATA code of the destination airport"
         tests:
@@ -57,29 +65,34 @@ models:
           - dbt_expectations.expect_column_values_to_not_be_null
           - dbt_expectations.expect_column_value_lengths_to_equal:
               value: 3
+
       - name: arrival_terminals
         description: "Arrival terminals"
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: varchar[]
+
       - name: arrival_time_local
         description: "Arrival time (local)"
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: time
           - dbt_expectations.expect_column_values_to_not_be_null
+
       - name: arrival_time_utc
         description: "Arrival time (UTC)"
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: time
           - dbt_expectations.expect_column_values_to_not_be_null
+
       - name: flight_days
         description: "Days of the week when flight takes place"
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: varchar[]
           - dbt_expectations.expect_column_values_to_not_be_null
+          
       - name: processed_timestamp
         description: "Timestamp indicating when the record was processed"
         tests:

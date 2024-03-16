@@ -2,11 +2,13 @@ version: 2
 
 models:
   - name: airlines_curated
+
     tests:
       - dbt_expectations.expect_table_row_count_to_be_between:
           min_value: 1
       - dbt_expectations.expect_table_column_count_to_equal:
           value: 4
+
     columns:
       - name: name
         description: "Name of the airline"
@@ -14,6 +16,7 @@ models:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: varchar
           - dbt_expectations.expect_column_values_to_not_be_null
+
       - name: iata_code
         description: "IATA code of the airline"
         tests:
@@ -23,6 +26,7 @@ models:
               min_value: 2
               max_value: 3
               row_condition: "iata_code is not null"
+
       - name: icao_code
         description: "ICAO code of the airline"
         tests:
@@ -31,6 +35,7 @@ models:
           - dbt_expectations.expect_column_value_lengths_to_equal:
               value: 3
               row_condition: "icao_code is not null"
+
       - name: processed_timestamp
         description: "Timestamp indicating when the record was processed"
         tests:
