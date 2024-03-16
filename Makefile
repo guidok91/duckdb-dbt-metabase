@@ -23,6 +23,7 @@ deps: # Install deps (DuckDB, dbt, etc).
 	rm duckdb_cli-linux-amd64.zip
 	pip install --upgrade pip setuptools wheel
 	pip install -r requirements.txt
+	dbt deps
 
 .PHONY: ingest-source-data
 ingest-source-data: # Download raw data from the AirLabs API.
@@ -37,11 +38,7 @@ duckdb: # Run DuckDB console.
 .PHONY: lint
 lint: # Run code linter tools.
 	pre-commit run --all-files
-
-.PHONY: dbt-deps
-dbt-deps: # Install dbt deps (packages).
-	dbt deps
-
+	
 .PHONY: dbt-run
 dbt-run: # Run dbt models.
 	dbt run
