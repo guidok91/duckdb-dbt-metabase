@@ -10,7 +10,6 @@ To start with, you can run the following commands in order:
 - `make build`
 - `make run`
 - `make ingest-source-data` (*)
-- `make dbt-deps`
 - `make dbt-run`
 
 (*) This step is optional (there are already [downloaded datasets available](data/source)).
