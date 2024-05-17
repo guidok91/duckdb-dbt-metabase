@@ -135,7 +135,7 @@ poetry.toml
 .vscode
 
 # DuckDB
-data/*.duckdb
+data/*.duckdb*
 
 # dbt
 target/
