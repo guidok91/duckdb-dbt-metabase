@@ -7,8 +7,8 @@ Aviation analytics project with [DuckDB](https://duckdb.org/) and [dbt](https://
 Run `make help` to see available commands together with their description.
 
 To start with, you can run the following commands in order:
-- `make build`
-- `make run`
+- `make docker-build`
+- `make docker-run`
 - `make ingest-source-data` (*)
 - `make dbt-deps`
 - `make dbt-run`

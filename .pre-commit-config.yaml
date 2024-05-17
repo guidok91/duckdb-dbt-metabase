@@ -1,6 +1,6 @@
 repos:
 - repo: https://github.com/pre-commit/pre-commit-hooks
-  rev: v4.4.0
+  rev: v4.5.0
   hooks:
   - id: check-yaml
   - id: end-of-file-fixer
@@ -15,5 +15,5 @@ repos:
   - id: sqlfluff-fix
     name: sqlfluff-fix
     language: system
-    entry: sqlfluff fix --dialect duckdb --force
+    entry: sqlfluff fix --dialect duckdb
     pass_filenames: false
