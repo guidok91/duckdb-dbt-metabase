@@ -27,7 +27,7 @@ Run `make duckdb` to open the DuckDB console.
 
 Here are some example queries:
 
-#### Most frequent destinatidownon airports for a given source airport
+#### Most frequent destination airports for a given source airport
 ```sql
 SELECT
     arrival_airport_iata_code,
