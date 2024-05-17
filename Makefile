@@ -3,17 +3,21 @@ help:
 	@grep -E '^[a-zA-Z0-9 -]+:.*#'  Makefile | while read -r l; do printf "\033[1;32m$$(echo $$l | cut -f 1 -d':')\033[00m:$$(echo $$l | cut -f 2- -d'#')\n"; done
 
 .PHONY: docker-build
-docker-build: # Build Docker image for the project.
-	docker build . -t duckdb-dbt --platform linux/x86_64
+docker-build: # Build docker images.
+	docker compose build
 
-.PHONY: docker-run
-docker-run: # Run Docker container in interactive mode.
-	docker run \
-	--platform linux/x86_64 \
-	-v ./:/duckdb-dbt \
-	-e AIRLABS_API_KEY=${AIRLABS_API_KEY} \
-	-e ENV=dev \
-	--rm -it duckdb-dbt bash
+.PHONY: docker-up
+docker-up: # Spawn containers for dbt and metabase.
+	docker compose up -d
+
+.PHONY: docker-it-dbt
+docker-it-dbt: # Run an interactive bash console on the dbt container.
+	docker exec -it dbt bash
+
+.PHONY: docker-down
+docker-down: # Remove containers for dbt and metabase.
+	docker compose stop
+	docker compose rm -f -v
 
 .PHONY: deps
 deps: # Install deps (DuckDB, dbt, etc).
@@ -52,5 +56,5 @@ dbt-test: # Test dbt models.
 
 .PHONY: clean
 clean: # Clean auxiliary files.
-	dbt clean
 	rm -rf logs .user.yml data/*.duckdb
+	dbt clean
