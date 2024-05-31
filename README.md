@@ -62,5 +62,9 @@ Go to http://localhost:3000 to use the Metabase UI. There you can connect to the
 
 When prompted for the database file, use `/data/aviation.duckdb`.
 
+Example of a dashboard:
+
+<img width="1000" alt="image" src="https://github.com/guidok91/duckdb-dbt-metabase/assets/38698125/b90e8caa-f497-4917-b6c3-9e86aaaa83f9">
+
 ## CI/CD
 A Github Actions CI/CD pipeline that runs tests/linting is defined [here](.github/workflows) and can be seen [here](https://github.com/guidok91/duckdb-dbt/actions).
