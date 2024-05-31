@@ -4,7 +4,7 @@ sources:
   - name: airlabs_api_data
     description: Raw datasets ingested from the AirLabs API.
     meta:
-      external_location: "data/source/{name}.json"
+      external_location: "../data/source/{name}.json"
     tables:
       - name: routes
         description: Dataset containing routes data.

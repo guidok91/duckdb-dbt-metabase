@@ -3,4 +3,4 @@ aviation_analytics_dbt_duckdb:
   outputs:
     dev:
       type: duckdb
-      path: data/aviation.duckdb
+      path: ../data/aviation.duckdb

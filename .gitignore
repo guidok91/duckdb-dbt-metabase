@@ -138,7 +138,8 @@ poetry.toml
 data/*.duckdb*
 
 # dbt
-target/
+dbt/target/
 dbt_packages/
-logs/
-.user.yml
+dbt/logs/
+dbt/.user.yml
+dbt/core

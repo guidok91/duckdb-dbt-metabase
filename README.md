@@ -60,7 +60,7 @@ LIMIT 10;
 ### Using Metabase
 Go to http://localhost:3000 to use the Metabase UI. There you can connect to the duckdb database and explore the data.
 
-When prompted for the database file, use `/home/data/aviation.duckdb`.
+When prompted for the database file, use `/data/aviation.duckdb`.
 
 ## CI/CD
 A Github Actions CI/CD pipeline that runs tests/linting is defined [here](.github/workflows) and can be seen [here](https://github.com/guidok91/duckdb-dbt/actions).

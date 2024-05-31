@@ -7,6 +7,6 @@ ADD https://github.com/MotherDuck-Open-Source/metabase_duckdb_driver/releases/do
 
 RUN chmod 744 /home/plugins/duckdb.metabase-driver.jar
 
-COPY data/* /home/data/
+COPY ./data /data/
 
 CMD ["java", "-jar", "/home/metabase.jar"]
