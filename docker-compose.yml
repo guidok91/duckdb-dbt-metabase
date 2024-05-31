@@ -1,15 +1,13 @@
-version: "3"
-
 services:
   dbt:
     image: dbt
     container_name: dbt
     platform: linux/amd64
     build:
-      context: .
-      dockerfile: DockerfileDbt
+      dockerfile: ./dbt/Dockerfile
     volumes:
-      - "./:/dbt"
+      - "./dbt:/dbt"
+      - "./data:/data"
     environment:
       - ENV=dev
       - AIRLABS_API_KEY=${AIRLABS_API_KEY}
@@ -20,9 +18,8 @@ services:
     container_name: metabase
     platform: linux/amd64
     build:
-      context: .
-      dockerfile: DockerfileMetabase
+      dockerfile: ./metabase/Dockerfile
     volumes:
-      - "./data:/home/data/"
+      - "./data:/data"
     ports:
       - "3000:3000"

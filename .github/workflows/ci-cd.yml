@@ -24,13 +24,17 @@ jobs:
         python-version: 3.12
 
     - name: Install dependencies
+      working-directory: ./dbt
       run: sudo make deps && make dbt-deps
 
     - name: Run linter
+      working-directory: ./dbt
       run: make lint
 
     - name: Run dbt models
+      working-directory: ./dbt
       run: make dbt-run
 
     - name: Run tests
+      working-directory: ./dbt
       run: make dbt-test
