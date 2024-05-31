@@ -142,3 +142,4 @@ dbt/target/
 dbt_packages/
 dbt/logs/
 dbt/.user.yml
+dbt/core
