@@ -4,11 +4,11 @@ help:
 
 .PHONY: docker-build
 docker-build: # Build docker images.
-	docker compose build
+	docker-compose build
 
 .PHONY: docker-up
 docker-up: # Spawn containers for dbt and metabase.
-	docker compose up -d
+	docker-compose up -d
 
 .PHONY: docker-it-dbt
 docker-it-dbt: # Run an interactive bash console on the dbt container.
@@ -16,8 +16,8 @@ docker-it-dbt: # Run an interactive bash console on the dbt container.
 
 .PHONY: docker-down
 docker-down: # Remove containers for dbt and metabase.
-	docker compose stop
-	docker compose rm -f -v
+	docker-compose stop
+	docker-compose rm -f -v
 
 .PHONY: deps
 deps: # Install deps (DuckDB, dbt, etc).
