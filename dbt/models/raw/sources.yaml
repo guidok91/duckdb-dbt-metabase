@@ -6,8 +6,6 @@ sources:
     meta:
       external_location: "../data/source/{name}.json"
     tables:
-      - name: routes
-        description: Dataset containing routes data.
       - name: airlines
         description: Dataset containing airlines data.
       - name: airports

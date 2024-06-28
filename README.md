@@ -25,25 +25,7 @@ Once the models have been run and the data is ready, you can start exploring the
 ### Using the duckdb console
 Run `make duckdb` to open the DuckDB console.
 
-Here are some example queries:
-
-#### Most frequent destination airports for a given source airport
-```sql
-SELECT
-    arrival_airport_iata_code,
-    COUNT(*)
-FROM
-    curated.routes
-WHERE
-    departure_airport_iata_code = 'EZE'
-GROUP BY
-    arrival_airport_iata_code
-ORDER BY
-    COUNT(*) DESC
-LIMIT 10;
-```
-
-#### Countries with the highest number of airports
+Example query (countries with the highest number of airports):
 ```sql
 SELECT
     country_code,
