@@ -3,7 +3,7 @@ version: 2
 models:
   - name: airports_curated
 
-    tests:
+    data_tests:
       - dbt_expectations.expect_table_row_count_to_be_between:
           min_value: 1
       - dbt_expectations.expect_table_column_count_to_equal:
@@ -12,14 +12,14 @@ models:
     columns:
       - name: name
         description: "Name of the airport"
-        tests:
+        data_tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: varchar
           - dbt_expectations.expect_column_values_to_not_be_null
 
       - name: iata_code
         description: "IATA code of the airport"
-        tests:
+        data_tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: varchar
           - dbt_expectations.expect_column_value_lengths_to_equal:
@@ -28,7 +28,7 @@ models:
 
       - name: icao_code
         description: "ICAO code of the airport"
-        tests:
+        data_tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: varchar
           - dbt_expectations.expect_column_value_lengths_to_equal:
@@ -37,21 +37,21 @@ models:
 
       - name: latitude
         description: "Latitude of the location of the airport"
-        tests:
+        data_tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: double
           - dbt_expectations.expect_column_values_to_not_be_null
 
       - name: longitude
         description: "Longitude of the location of the airport"
-        tests:
+        data_tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: double
           - dbt_expectations.expect_column_values_to_not_be_null
 
       - name: country_code
         description: "Code of the country of the airport"
-        tests:
+        data_tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: varchar
           - dbt_expectations.expect_column_values_to_not_be_null
@@ -60,7 +60,7 @@ models:
 
       - name: processed_timestamp
         description: "Timestamp indicating when the record was processed"
-        tests:
+        data_tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: timestamp with time zone
           - dbt_expectations.expect_column_values_to_not_be_null
