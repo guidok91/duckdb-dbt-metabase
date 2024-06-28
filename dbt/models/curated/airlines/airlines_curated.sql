@@ -3,9 +3,11 @@
 ) }}
 
 SELECT
-    name,
     iata_code,
-    icao_code,
+    name,
     CURRENT_TIMESTAMP AS processed_timestamp
 FROM
     {{ ref('airlines_raw') }}
+WHERE
+    iata_code IS NOT NULL
+QUALIFY ROW_NUMBER() OVER (PARTITION BY iata_code ORDER BY name) = 1
