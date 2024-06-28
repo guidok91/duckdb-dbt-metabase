@@ -8,7 +8,7 @@ SELECT
     lat AS latitude,
     lng AS longitude,
     country_code,
-    CURRENT_TIMESTAMP AS processed_timestamp
+    NOW() AS processed_timestamp
 FROM
     {{ ref('airports_raw') }}
 WHERE

@@ -5,7 +5,7 @@
 SELECT
     iata_code,
     name,
-    CURRENT_TIMESTAMP AS processed_timestamp
+    NOW() AS processed_timestamp
 FROM
     {{ ref('airlines_raw') }}
 WHERE

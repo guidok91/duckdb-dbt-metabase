@@ -14,7 +14,7 @@ clean-targets:
 models:
   aviation_analytics:
     +materialized: table
-    curated:
-      +schema: curated
     raw:
       +schema: raw
+    curated:
+      +schema: curated
