@@ -25,7 +25,9 @@ Once the models have been run and the data is ready, you can start exploring the
 ### Using the duckdb console
 Run `make duckdb` to open the DuckDB console.
 
-Example query (countries with the highest number of airports):
+Example queries:
+
+#### Countries with the highest number of airports
 ```sql
 SELECT
     country_code,
@@ -37,6 +39,21 @@ GROUP BY
 ORDER BY
     count(*) DESC
 LIMIT 10;
+```
+
+#### Current number of flights by status
+```sql
+SELECT
+    flight_status,
+    COUNT(*)
+FROM
+    curated.flights
+WHERE
+    processed_timestamp = (SELECT MAX(processed_timestamp) FROM curated.flights)
+GROUP BY
+    ALL
+ORDER BY
+    COUNT(*) DESC
 ```
 
 ### Using Metabase
