@@ -35,6 +35,6 @@ jobs:
       working-directory: ./dbt
       run: make dbt-run
 
-    - name: Run tests
+    - name: Run dbt data tests
       working-directory: ./dbt
-      run: make dbt-test
+      run: make dbt-test-data

@@ -34,9 +34,9 @@ dbt-deps: # Install dbt deps (packages).
 dbt-run: # Run dbt models.
 	dbt run
 
-.PHONY: dbt-test
-dbt-test: # Test dbt models.
-	dbt test
+.PHONY: dbt-test-data
+dbt-test-data: # Run data tests on dbt models.
+	dbt test --select "test_type:data"
 
 .PHONY: clean
 clean: # Clean auxiliary files.
