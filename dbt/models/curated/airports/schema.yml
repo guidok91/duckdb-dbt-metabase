@@ -58,3 +58,19 @@ models:
           - dbt_expectations.expect_row_values_to_have_recent_data:
               datepart: day
               interval: 1
+
+unit_tests:
+  - name: test_airports_curated
+    description: "Verify the logic of the airports_curated model"
+    model: airports_curated
+    given:
+      - input: ref('airports_raw')
+        rows:
+          - {iata_code: "EZE", name: "Buenos Aires - Ministro Pistarini International Airport", lat: -34.82222, lng: -58.53583, country_code: "AR"}
+          - {iata_code: "BER", name: "Berlin Brandenburg Airport", lat: 52.36213, lng: 13.50168, country_code: "DE"}
+          - {iata_code: "BER", name: "Berlin Regional Airport", lat: 52.36213, lng: 13.50168, country_code: "DE"}
+          - {iata_code: null, name: "Fake Airport", lat: -31.7345, lng: -22.4464, country_code: "DE"}
+    expect:
+      rows:
+          - {iata_code: "EZE", name: "Buenos Aires - Ministro Pistarini International Airport", latitude: -34.82222, longitude: -58.53583, country_code: "AR"}
+          - {iata_code: "BER", name: "Berlin Brandenburg Airport", latitude: 52.36213, longitude: 13.50168, country_code: "DE"}

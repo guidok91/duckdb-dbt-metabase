@@ -34,6 +34,10 @@ dbt-deps: # Install dbt deps (packages).
 dbt-run: # Run dbt models.
 	dbt run
 
+.PHONY: dbt-test-unit
+dbt-test-unit: # Run unit tests on dbt models.
+	dbt test --select "test_type:unit"
+
 .PHONY: dbt-test-data
 dbt-test-data: # Run data tests on dbt models.
 	dbt test --select "test_type:data"

@@ -36,3 +36,19 @@ models:
           - dbt_expectations.expect_row_values_to_have_recent_data:
               datepart: day
               interval: 1
+
+unit_tests:
+  - name: test_airlines_curated
+    description: "Verify the logic of the airlines_curated model"
+    model: airlines_curated
+    given:
+      - input: ref('airlines_raw')
+        rows:
+          - {iata_code: "AR", name: "Aerolineas Argentinas"}
+          - {iata_code: "LH", name: "Lufthansa"}
+          - {iata_code: "LH", name: "System Lufthansa"}
+          - {iata_code: null, name: "Fake Air"}
+    expect:
+      rows:
+          - {iata_code: "AR", name: "Aerolineas Argentinas"}
+          - {iata_code: "LH", name: "Lufthansa"}
