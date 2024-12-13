@@ -1,4 +1,4 @@
-FROM eclipse-temurin:22
+FROM eclipse-temurin:23
 
 ENV MB_PLUGINS_DIR=/home/plugins/
 
