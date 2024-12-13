@@ -19,6 +19,9 @@ This will run the dbt models to fill the DuckDB tables with aviation data.
 (*) This step is optional (there are already [downloaded datasets available](data/source)).
 If you would like to run this step to get fresh data, please generate an AirLabs API key (see how to on their website) and set the `AIRLABS_API_KEY` env variable.
 
+## Dependency management
+Dependabot is configured to periodically upgrade repo dependencies. See [dependabot.yml](.github/dependabot.yml).
+
 ## Data exploration
 Once the models have been run and the data is ready, you can start exploring the data.
 
