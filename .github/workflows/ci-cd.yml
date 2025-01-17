@@ -25,7 +25,7 @@ jobs:
 
     - name: Install dependencies
       working-directory: ./dbt
-      run: make deps && make dbt-deps
+      run: sudo make deps && make dbt-deps
 
     - name: Run linter
       working-directory: ./dbt
