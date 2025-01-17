@@ -8,7 +8,7 @@ deps: # Install deps (DuckDB, dbt, etc).
 	unzip duckdb_cli-linux-amd64.zip
 	mv duckdb /usr/bin
 	rm duckdb_cli-linux-amd64.zip
-	pip install --upgrade pip setuptools
+	pip install --upgrade --force-reinstall pip setuptools wheel
 	pip install -r requirements.txt
 
 .PHONY: ingest-source-data
