@@ -4,12 +4,12 @@ help:
 
 .PHONY: deps
 deps: # Install deps (DuckDB, dbt, etc).
-	pip install --upgrade pip setuptools wheel
-	pip install -r requirements.txt
 	curl -LO https://github.com/duckdb/duckdb/releases/download/v1.0.0/duckdb_cli-linux-amd64.zip
 	unzip duckdb_cli-linux-amd64.zip
-	mv duckdb /usr/bin
+	sudo mv duckdb /usr/bin
 	rm duckdb_cli-linux-amd64.zip
+	pip install --upgrade pip setuptools wheel
+	pip install -r requirements.txt
 
 .PHONY: ingest-source-data
 ingest-source-data: # Download raw data from the AirLabs API.
