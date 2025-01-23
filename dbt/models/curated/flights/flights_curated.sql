@@ -28,5 +28,6 @@ WHERE
     AND latitude IS NOT NULL
     AND longitude IS NOT NULL
 QUALIFY ROW_NUMBER() OVER (
-    PARTITION BY flight_iata_code ORDER BY event_timestamp DESC
+    PARTITION BY flight_iata_code
+    ORDER BY event_timestamp DESC
 ) = 1

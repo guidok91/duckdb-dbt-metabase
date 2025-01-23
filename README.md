@@ -56,7 +56,7 @@ WHERE
 GROUP BY
     ALL
 ORDER BY
-    COUNT(*) DESC
+    COUNT(*) DESC;
 ```
 
 ### Using Metabase
