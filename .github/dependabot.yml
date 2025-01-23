@@ -4,6 +4,10 @@ updates:
     directory: "/dbt"
     schedule:
       interval: "monthly"
+    groups:
+      all-dependencies:
+        patterns:
+          - "*"
 
   - package-ecosystem: "docker"
     directories:
@@ -11,9 +15,17 @@ updates:
       - "/metabase"
     schedule:
       interval: "monthly"
+    groups:
+      all-dependencies:
+        patterns:
+          - "*"
 
   # docker-compose is not supported by dependabot yet
   # - package-ecosystem: "docker"
   #   directory: "/"
   #   schedule:
   #     interval: "monthly"
+    # groups:
+    #   all-dependencies:
+    #     patterns:
+    #       - "*"
