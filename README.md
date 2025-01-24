@@ -3,6 +3,9 @@
 
 Aviation analytics project with [DuckDB](https://duckdb.org/), [dbt](https://docs.getdbt.com/docs/introduction) and [Metabase](https://www.metabase.com/) using the data from [AirLabs API](https://airlabs.co).
 
+## Data Architecture
+![data architecture](https://github.com/user-attachments/assets/08847992-3524-4ae9-9ff9-73104ac69d71)
+
 ## Running instructions
 Run `make help` to see available commands together with their description.
 
