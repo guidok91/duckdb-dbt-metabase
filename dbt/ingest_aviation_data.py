@@ -4,7 +4,7 @@ from dlt.sources.rest_api import (
     rest_api_source,
 )
 
-AIRLABS_API_TOKEN = "abbd5b10-f82d-4a89-b821-66c6c6430271"
+AIRLABS_API_TOKEN = "<FILL>"
 
 def load_aviation_data() -> None:
     pipeline = dlt.pipeline(
