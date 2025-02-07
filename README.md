@@ -75,4 +75,6 @@ Example of a dashboard:
 Dependabot is configured to periodically upgrade repo dependencies. See [dependabot.yml](.github/dependabot.yml).
 
 ## CI/CD
-A Github Actions CI/CD pipeline that runs tests/linting is defined [here](.github/workflows) and can be seen [here](https://github.com/guidok91/duckdb-dbt/actions).
+A Github Actions CI/CD pipeline that runs the models, tests and code linting is defined [here](.github/workflows) and can be seen [here](https://github.com/guidok91/duckdb-dbt/actions).
+
+Note that the `AIRLABS_API_KEY` is provided as a Github repository secret to be used in the CI/CD pipeline.
