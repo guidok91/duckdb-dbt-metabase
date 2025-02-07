@@ -10,9 +10,9 @@ docker-build: # Build docker images.
 docker-up: # Spawn containers for dbt and metabase.
 	docker-compose up -d
 
-.PHONY: docker-it-dbt
-docker-it-dbt: # Run an interactive bash console on the dbt container.
-	docker exec -it dbt bash
+.PHONY: docker-it-dbt-dlt
+docker-it-dbt-dlt: # Run an interactive bash console on the dbt-dlt container.
+	docker exec -it dbt-dlt bash
 
 .PHONY: docker-down
 docker-down: # Remove containers for dbt and metabase.
