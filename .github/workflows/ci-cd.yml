@@ -31,6 +31,18 @@ jobs:
       working-directory: ./dbt
       run: make lint
 
+    - name: Ingest raw data
+      working-directory: ./dbt
+      run: make ingest-source-data
+
+    - name: Run dbt models
+      working-directory: ./dbt
+      run: make dbt-run
+
     - name: Run dbt unit tests
       working-directory: ./dbt
       run: make dbt-test-unit
+
+    - name: Run dbt data tests
+      working-directory: ./dbt
+      run: make dbt-test-data

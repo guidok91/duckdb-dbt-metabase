@@ -1,9 +1,9 @@
 import logging
-
+import os
 import dlt
 from dlt.sources.rest_api import rest_api_source
 
-SOURCE_API_KEY = dlt.secrets["sources.airlabs_rest_api.credentials.api_key"]
+SOURCE_API_KEY = os.environ["AIRLABS_API_KEY"]
 SOURCE_BASE_URL = "https://airlabs.co/api/v9/"
 DESTINATION_DB_PATH = "/data/aviation.duckdb"
 
