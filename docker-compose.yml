@@ -10,7 +10,6 @@ services:
       - "./data:/data"
     environment:
       - ENV=dev
-      - AIRLABS_API_KEY=${AIRLABS_API_KEY}
     command: tail -f /dev/null
 
   metabase:

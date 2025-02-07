@@ -10,7 +10,7 @@ SELECT
     country_code,
     NOW() AS processed_timestamp
 FROM
-    {{ ref('airports_raw') }}
+    {{ source('raw', 'airports') }}
 WHERE
     iata_code IS NOT NULL
 QUALIFY ROW_NUMBER() OVER (

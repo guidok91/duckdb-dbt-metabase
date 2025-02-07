@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: flights_curated
+  - name: flights
 
     data_tests:
       - dbt_expectations.expect_table_row_count_to_be_between:
@@ -118,11 +118,11 @@ models:
               interval: 1
 
 unit_tests:
-  - name: test_flights_curated
-    description: "Verify the logic of the flights_curated model"
-    model: flights_curated
+  - name: test_flights
+    description: "Verify the logic of the flights model"
+    model: flights
     given:
-      - input: ref('flights_raw')
+      - input: source('raw', 'flights')
         rows:
           - {flight_iata: "AR1774", flag: "AR", lat: -25.68102, lng: -54.708376, alt: 1556, speed: 444, v_speed: 2, squawk: null, status: en-route, airline_iata: "AR", dep_iata: "EZE", arr_iata: "IGR", reg_number: "LV-FRQ", type: "adsb", updated: 1723206049}
           - {flight_iata: "AR1774", flag: "DE", lat: -25.68102, lng: -54.708376, alt: 1556, speed: 444, v_speed: 2, squawk: null, status: en-route, airline_iata: "AR", dep_iata: "EZE", arr_iata: "IGR", reg_number: "LV-FRQ", type: "adsb", updated: 1723206048}

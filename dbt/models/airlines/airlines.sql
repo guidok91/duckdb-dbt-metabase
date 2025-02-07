@@ -7,7 +7,7 @@ SELECT
     name,
     NOW() AS processed_timestamp
 FROM
-    {{ ref('airlines_raw') }}
+    {{ source('raw', 'airlines') }}
 WHERE
     iata_code IS NOT NULL
 QUALIFY ROW_NUMBER() OVER (

@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: airlines_curated
+  - name: airlines
 
     data_tests:
       - dbt_expectations.expect_table_row_count_to_be_between:
@@ -38,11 +38,11 @@ models:
               interval: 1
 
 unit_tests:
-  - name: test_airlines_curated
-    description: "Verify the logic of the airlines_curated model"
-    model: airlines_curated
+  - name: test_airlines
+    description: "Verify the logic of the airlines model"
+    model: airlines
     given:
-      - input: ref('airlines_raw')
+      - input: source('raw', 'airlines')
         rows:
           - {iata_code: "AR", name: "Aerolineas Argentinas"}
           - {iata_code: "LH", name: "Lufthansa"}
