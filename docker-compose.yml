@@ -1,12 +1,12 @@
 services:
-  dbt:
-    image: dbt
-    container_name: dbt
+  dbt-dlt:
+    image: dbt-dlt
+    container_name: dbt-dlt
     platform: linux/amd64
     build:
-      dockerfile: ./dbt/Dockerfile
+      dockerfile: ./dbt-dlt/Dockerfile
     volumes:
-      - "./dbt:/dbt"
+      - "./dbt-dlt:/dbt-dlt"
       - "./data:/data"
     environment:
       - ENV=dev

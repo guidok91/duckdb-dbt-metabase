@@ -3,7 +3,7 @@ help:
 	@grep -E '^[a-zA-Z0-9 -]+:.*#'  Makefile | while read -r l; do printf "\033[1;32m$$(echo $$l | cut -f 1 -d':')\033[00m:$$(echo $$l | cut -f 2- -d'#')\n"; done
 
 .PHONY: deps
-deps: # Install deps (DuckDB, dbt, etc).
+deps: # Install deps.
 	curl -LO https://github.com/duckdb/duckdb/releases/download/v1.0.0/duckdb_cli-linux-amd64.zip
 	unzip duckdb_cli-linux-amd64.zip
 	sudo mv duckdb /usr/bin
@@ -11,8 +11,8 @@ deps: # Install deps (DuckDB, dbt, etc).
 	pip install --upgrade pip setuptools wheel
 	pip install -r requirements.txt
 
-.PHONY: ingest-source-data
-ingest-source-data: # Ingest raw data from the AirLabs API using dlt.
+.PHONY: dlt-ingest-source-data
+dlt-ingest-source-data: # Ingest raw data from the AirLabs API using dlt.
 	python ingest_aviation_data.py
 
 .PHONY: duckdb

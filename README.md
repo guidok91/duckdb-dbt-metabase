@@ -15,11 +15,11 @@ Build and spin up Docker containers needed for the app:
 - `make docker-up`
 
 Get into the dbt container:
-- `make docker-it-dbt`
+- `make docker-it-dbt-dlt`
 
 ### Ingest source data from AirLabs REST API to DuckDB using dlt
 For this step we first need to generate an AirLabs API key (see how to on their website), and set the environment variable `AIRLABS_API_KEY`. Then run:
-- `make ingest-source-data`
+- `make dlt-ingest-source-data`
 
 ### Run dbt models to transform and curate the data
 - `make dbt-deps`
