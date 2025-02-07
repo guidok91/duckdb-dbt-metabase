@@ -47,4 +47,4 @@ dbt-test-data: # Run data tests on dbt models.
 .PHONY: clean
 clean: # Clean auxiliary files.
 	dbt clean
-	rm -rf logs .user.yml /data/*.duckdb
+	rm -rf logs .user.yml /data/*.duckdb .mypy_cache .ruff_cache
