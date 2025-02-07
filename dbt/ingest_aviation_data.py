@@ -1,54 +1,43 @@
 import dlt
-from dlt.sources.rest_api import (
-    check_connection,
-    rest_api_source,
-)
+from dlt.sources.rest_api import rest_api_source
+import logging
 
-AIRLABS_API_TOKEN = "<FILL>"
+SOURCE_API_KEY = "<FILL_ME>"  # TODO: use dlt secrets file
+SOURCE_BASE_URL = "https://airlabs.co/api/v9/"
+DESTINATION_DB_PATH = "/data/aviation.duckdb"
 
 def load_aviation_data() -> None:
     pipeline = dlt.pipeline(
         pipeline_name="aviation",
-        destination='duckdb',
+        destination=dlt.destinations.duckdb(DESTINATION_DB_PATH),
         dataset_name="raw",
     )
 
     aviation_source = rest_api_source(
         {
             "client": {
-                "base_url": "https://airlabs.co/api/v9/",
-                "auth": {
-                    "token": AIRLABS_API_TOKEN,  # TODO: "ERROR - Missing api_key", see how to pass api_key
-                },
-            },
-            "resource_defaults": {
-                "endpoint": {
-                    "params": {
-                        "limit": 1000,
-                    },
-                },
+                "base_url": SOURCE_BASE_URL,
             },
             "resources": [
-                "airlines",
-                "airports",
-                "flights",
-            ],
+                build_resource_config("airlines"),
+                build_resource_config("airports"),
+                build_resource_config("flights")
+            ]
         }
     )
 
-    def check_network_and_authentication() -> None:
-        (can_connect, error_msg) = check_connection(
-            aviation_source,
-            "not_existing_endpoint",
-        )
-        if not can_connect:
-            pass  # do something with the error message
-
-    check_network_and_authentication()
-
     load_info = pipeline.run(aviation_source)
-    print(load_info)  # noqa: T201
+    logging.info(load_info)  # noqa: T201
 
+
+def build_resource_config(resource_name: str) -> dict:
+    return {
+        "name": resource_name,
+        "endpoint": {
+            "path": resource_name,
+            "params": {"api_key": SOURCE_API_KEY},
+        }
+    }
 
 if __name__ == "__main__":
     load_aviation_data()

@@ -12,10 +12,8 @@ deps: # Install deps (DuckDB, dbt, etc).
 	pip install -r requirements.txt
 
 .PHONY: ingest-source-data
-ingest-source-data: # Download raw data from the AirLabs API.
-	curl "https://airlabs.co/api/v9/airlines?api_key=${AIRLABS_API_KEY}" > /data/source/airlines.json
-	curl "https://airlabs.co/api/v9/airports?api_key=${AIRLABS_API_KEY}" > /data/source/airports.json
-	curl "https://airlabs.co/api/v9/flights?api_key=${AIRLABS_API_KEY}" > /data/source/flights.json
+ingest-source-data: # Ingest raw data from the AirLabs API using dlt.
+	python ingest_aviation_data.py
 
 .PHONY: duckdb
 duckdb: # Run DuckDB console.
