@@ -31,6 +31,12 @@ jobs:
       working-directory: ./dbt
       run: make lint
 
+    - name: Ingest raw data
+      working-directory: ./dbt
+      env:
+        AIRLABS_API_KEY: ${{ secrets.AIRLABS_API_KEY }}
+      run: make ingest-source-data
+
     - name: Run dbt models
       working-directory: ./dbt
       run: make dbt-run

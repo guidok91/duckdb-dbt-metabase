@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: airports_curated
+  - name: airports
 
     data_tests:
       - dbt_expectations.expect_table_row_count_to_be_between:
@@ -60,11 +60,11 @@ models:
               interval: 1
 
 unit_tests:
-  - name: test_airports_curated
-    description: "Verify the logic of the airports_curated model"
-    model: airports_curated
+  - name: test_airports
+    description: "Verify the logic of the airports model"
+    model: airports
     given:
-      - input: ref('airports_raw')
+      - input: source('raw', 'airports')
         rows:
           - {iata_code: "EZE", name: "Buenos Aires - Ministro Pistarini International Airport", lat: -34.82222, lng: -58.53583, country_code: "AR"}
           - {iata_code: "BER", name: "Berlin Brandenburg Airport", lat: 52.36213, lng: 13.50168, country_code: "DE"}

@@ -22,7 +22,7 @@ SELECT
     TO_TIMESTAMP(updated) AS event_timestamp,
     NOW() AS processed_timestamp
 FROM
-    {{ ref('flights_raw') }}
+    {{ source('raw', 'flights') }}
 WHERE
     flight_iata_code IS NOT NULL
     AND latitude IS NOT NULL

@@ -28,6 +28,7 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+.mypy_cache
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -143,3 +144,9 @@ dbt_packages/
 dbt/logs/
 dbt/.user.yml
 dbt/core
+
+# dlt
+# ignore secrets, virtual environments and typical python compilation artifacts
+secrets.toml
+# ignore duckdb
+*.wal

@@ -1,10 +1,8 @@
 version: 2
 
 sources:
-  - name: airlabs_api_data
+  - name: raw
     description: Raw datasets ingested from the AirLabs API.
-    meta:
-      external_location: "../data/source/{name}.json"
     tables:
       - name: airlines
         description: Dataset containing airlines data.
