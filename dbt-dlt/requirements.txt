@@ -1,5 +1,5 @@
-dbt-duckdb==1.9.1
-dlt==1.6.1
-sqlfluff-templater-dbt==3.3.0
-ruff==0.9.5
-mypy==1.15.0
+dbt-duckdb~=1.9.1
+dlt~=1.6.1
+sqlfluff-templater-dbt~=3.3.0
+ruff~=0.9.5
+mypy~=1.15.0
