@@ -21,12 +21,15 @@ duckdb: # Run DuckDB console.
 
 .PHONY: lint
 lint: # Run code linter tools.
-	sqlfluff lint --dialect duckdb
-	sqlfluff fix --dialect duckdb
-	black .
-	isort .
-	ruff check
-	mypy .
+	@{ \
+		sqlfluff lint --dialect duckdb; exit_code=$$?; \
+		sqlfluff fix --dialect duckdb; exit_code=$$?; \
+		ruff check --select "E,F,UP,B,SIM,I"; exit_code=$$?; \
+		ruff check --fix --select "E,F,UP,B,SIM,I"; exit_code=$$((exit_code | $$?)); \
+		ruff format; exit_code=$$((exit_code | $$?)); \
+		mypy .; exit_code=$$((exit_code | $$?)); \
+		exit $$exit_code; \
+	}
 
 .PHONY: dbt-deps
 dbt-deps: # Install dbt deps (packages).
