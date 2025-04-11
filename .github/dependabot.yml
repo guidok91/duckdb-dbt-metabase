@@ -1,7 +1,9 @@
 version: 2
 updates:
   - package-ecosystem: "pip"
-    directory: "/dbt-dlt"
+    directories:
+      - "/dbt"
+      - "/dlt"
     schedule:
       interval: "monthly"
     groups:
@@ -11,7 +13,8 @@ updates:
 
   - package-ecosystem: "docker"
     directories:
-      - "/dbt-dlt"
+      - "/dbt"
+      - "/dlt"
       - "/metabase"
     schedule:
       interval: "monthly"

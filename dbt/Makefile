@@ -11,10 +11,6 @@ deps: # Install deps.
 	pip install --upgrade pip setuptools wheel
 	pip install -r requirements.txt
 
-.PHONY: dlt-ingest-source-data
-dlt-ingest-source-data: # Ingest raw data from the AirLabs API using dlt.
-	python ingest_aviation_data.py
-
 .PHONY: duckdb
 duckdb: # Run DuckDB console.
 	duckdb /data/aviation.duckdb
@@ -24,10 +20,6 @@ lint: # Run code linter tools.
 	@{ \
 		sqlfluff lint --dialect duckdb; exit_code=$$?; \
 		sqlfluff fix --dialect duckdb; exit_code=$$?; \
-		ruff check --select "E,F,UP,B,SIM,I"; exit_code=$$?; \
-		ruff check --fix --select "E,F,UP,B,SIM,I"; exit_code=$$((exit_code | $$?)); \
-		ruff format; exit_code=$$((exit_code | $$?)); \
-		mypy .; exit_code=$$((exit_code | $$?)); \
 		exit $$exit_code; \
 	}
 
@@ -50,4 +42,4 @@ dbt-test-data: # Run data tests on dbt models.
 .PHONY: clean
 clean: # Clean auxiliary files.
 	dbt clean
-	rm -rf logs .user.yml /data/*.duckdb .mypy_cache .ruff_cache
+	rm -rf logs .user.yml /data/*.duckdb
