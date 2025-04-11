@@ -16,7 +16,6 @@ models:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: varchar
           - dbt_expectations.expect_column_values_to_not_be_null
-          - dbt_expectations.expect_column_values_to_be_unique
 
       - name: country_code
         description: "Code of the country of the flight"
@@ -105,6 +104,13 @@ models:
         data_tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: varchar
+          - dbt_expectations.expect_column_values_to_not_be_null
+
+      - name: event_timestamp
+        description: "UTC timestamp indicating when the flight position was recorded (when the event occurred)"
+        data_tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp with time zone
           - dbt_expectations.expect_column_values_to_not_be_null
 
       - name: processed_timestamp
