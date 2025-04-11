@@ -6,6 +6,10 @@ Aviation analytics project with [DuckDB](https://duckdb.org/), [dbt](https://doc
 ## Data Architecture
 ![data architecture](https://github.com/user-attachments/assets/13ef8d33-10af-463d-a947-a75a17e2373e)
 
+Datasets are ingested as snapshots from the source API.  
+When loading to the curated tables, they are processed with a `merge` strategy (using a unique key per dataset).  
+This preserves the latest version of each record to keep it simple on the querying side.
+
 ## Running instructions
 Run `make help` to see available commands together with their description.
 
