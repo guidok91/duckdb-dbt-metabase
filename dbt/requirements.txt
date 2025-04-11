@@ -1,2 +1,2 @@
-dbt-duckdb~=1.9.1
-sqlfluff-templater-dbt~=3.3.0
+dbt-duckdb~=1.9.2
+sqlfluff-templater-dbt~=3.3.1
