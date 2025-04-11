@@ -22,25 +22,33 @@ def load_aviation_data() -> None:
                 "base_url": SOURCE_BASE_URL,
             },
             "resources": [
-                build_resource_config("airlines"),  # type: ignore
-                build_resource_config("airports"),  # type: ignore
-                build_resource_config("flights"),  # type: ignore
+                {
+                    "name": "airlines",
+                    "endpoint": {
+                        "path": "airlines",
+                        "params": {"api_key": SOURCE_API_KEY},
+                    },
+                },
+                {
+                    "name": "airports",
+                    "endpoint": {
+                        "path": "airports",
+                        "params": {"api_key": SOURCE_API_KEY},
+                    },
+                },
+                {
+                    "name": "flight_positions",
+                    "endpoint": {
+                        "path": "flights",
+                        "params": {"api_key": SOURCE_API_KEY},
+                    },
+                },
             ],
         }
     )
 
     load_info = pipeline.run(aviation_source)
     logging.info(load_info)
-
-
-def build_resource_config(resource_name: str) -> dict:
-    return {
-        "name": resource_name,
-        "endpoint": {
-            "path": resource_name,
-            "params": {"api_key": SOURCE_API_KEY},
-        },
-    }
 
 
 if __name__ == "__main__":

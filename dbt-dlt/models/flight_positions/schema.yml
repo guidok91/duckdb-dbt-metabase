@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: flights
+  - name: flight_positions
 
     data_tests:
       - dbt_expectations.expect_table_row_count_to_be_between:
@@ -15,6 +15,7 @@ models:
         data_tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: varchar
+          - dbt_expectations.expect_column_values_to_not_be_null
           - dbt_expectations.expect_column_values_to_be_unique
 
       - name: country_code
@@ -117,11 +118,11 @@ models:
               interval: 1
 
 unit_tests:
-  - name: test_flights
-    description: "Verify the logic of the flights model"
-    model: flights
+  - name: test_flight_positions
+    description: "Verify the logic of the flight_positions model"
+    model: flight_positions
     given:
-      - input: source('raw', 'flights')
+      - input: source('raw', 'flight_positions')
         rows:
           - {flight_iata: "AR1774", flag: "AR", lat: -25.68102, lng: -54.708376, alt: 1556, speed: 444, v_speed: 2, squawk: null, status: en-route, airline_iata: "AR", dep_iata: "EZE", arr_iata: "IGR", reg_number: "LV-FRQ", type: "adsb", updated: 1723206049}
           - {flight_iata: "AR1774", flag: "DE", lat: -25.68102, lng: -54.708376, alt: 1556, speed: 444, v_speed: 2, squawk: null, status: en-route, airline_iata: "AR", dep_iata: "EZE", arr_iata: "IGR", reg_number: "LV-FRQ", type: "adsb", updated: 1723206048}

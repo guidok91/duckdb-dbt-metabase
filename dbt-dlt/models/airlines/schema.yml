@@ -15,6 +15,7 @@ models:
         data_tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: varchar
+          - dbt_expectations.expect_column_values_to_not_be_null
           - dbt_expectations.expect_column_values_to_be_unique
           - dbt_expectations.expect_column_value_lengths_to_be_between:
               min_value: 2

@@ -53,9 +53,9 @@ SELECT
     flight_status,
     COUNT(*)
 FROM
-    curated.flights
+    curated.flight_positions
 WHERE
-    processed_timestamp = (SELECT MAX(processed_timestamp) FROM curated.flights)
+    processed_timestamp = (SELECT MAX(processed_timestamp) FROM curated.flight_positions)
 GROUP BY
     ALL
 ORDER BY
