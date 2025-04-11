@@ -4,7 +4,7 @@ help:
 
 .PHONY: deps
 deps: # Install deps.
-	curl -LO https://github.com/duckdb/duckdb/releases/download/v1.0.0/duckdb_cli-linux-amd64.zip
+	curl -LO https://github.com/duckdb/duckdb/releases/download/v1.2.2/duckdb_cli-linux-amd64.zip
 	unzip duckdb_cli-linux-amd64.zip
 	sudo mv duckdb /usr/bin
 	rm duckdb_cli-linux-amd64.zip
