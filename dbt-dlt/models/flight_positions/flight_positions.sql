@@ -1,5 +1,5 @@
 {{ config(
-    alias='flights',
+    alias='flight_positions',
     materialized='incremental',
     incremental_strategy='append',
 ) }}
@@ -22,7 +22,7 @@ SELECT
     TO_TIMESTAMP(updated) AS event_timestamp,
     NOW() AS processed_timestamp
 FROM
-    {{ source('raw', 'flights') }}
+    {{ source('raw', 'flight_positions') }}
 WHERE
     flight_iata_code IS NOT NULL
     AND latitude IS NOT NULL
