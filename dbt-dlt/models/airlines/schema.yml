@@ -45,10 +45,11 @@ unit_tests:
     given:
       - input: source('raw', 'airlines')
         rows:
-          - {iata_code: "AR", name: "Aerolineas Argentinas"}
-          - {iata_code: "LH", name: "Lufthansa"}
-          - {iata_code: "LH", name: "System Lufthansa"}
-          - {iata_code: null, name: "Fake Air"}
+          - {iata_code: "AR", name: "Aerolineas Argentinas", _dlt_load_id: "1744372569.2028034"}
+          - {iata_code: "LH", name: "Lufthansa", _dlt_load_id: "1744372569.2028034"}
+          - {iata_code: "LH", name: "System Lufthansa", _dlt_load_id: "1744372569.2028034"}
+          - {iata_code: null, name: "Fake Air", _dlt_load_id: "1744372569.2028034"}
+          - {iata_code: "AF", name: "Air France", _dlt_load_id: "1744372415.5011466"}
     expect:
       rows:
           - {iata_code: "AR", name: "Aerolineas Argentinas"}

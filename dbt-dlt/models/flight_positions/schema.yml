@@ -16,7 +16,6 @@ models:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: varchar
           - dbt_expectations.expect_column_values_to_not_be_null
-          - dbt_expectations.expect_column_values_to_be_unique
 
       - name: country_code
         description: "Code of the country of the flight"
@@ -107,6 +106,13 @@ models:
               column_type: varchar
           - dbt_expectations.expect_column_values_to_not_be_null
 
+      - name: event_timestamp
+        description: "UTC timestamp indicating when the flight position was recorded (when the event occurred)"
+        data_tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp with time zone
+          - dbt_expectations.expect_column_values_to_not_be_null
+
       - name: processed_timestamp
         description: "UTC timestamp indicating when the record was processed"
         data_tests:
@@ -124,9 +130,10 @@ unit_tests:
     given:
       - input: source('raw', 'flight_positions')
         rows:
-          - {flight_iata: "AR1774", flag: "AR", lat: -25.68102, lng: -54.708376, alt: 1556, speed: 444, v_speed: 2, squawk: null, status: en-route, airline_iata: "AR", dep_iata: "EZE", arr_iata: "IGR", reg_number: "LV-FRQ", type: "adsb", updated: 1723206049}
-          - {flight_iata: "AR1774", flag: "DE", lat: -25.68102, lng: -54.708376, alt: 1556, speed: 444, v_speed: 2, squawk: null, status: en-route, airline_iata: "AR", dep_iata: "EZE", arr_iata: "IGR", reg_number: "LV-FRQ", type: "adsb", updated: 1723206048}
-          - {flight_iata: "AR1304", flag: "AR", lat: -28.723273, lng: null, alt: 11000, speed: 851, v_speed: 4, squawk: null, status: en-route, airline_iata: "AR", dep_iata: "EZE", arr_iata: "MIA", reg_number: "LV-KAN", type: "adsb", updated: 1723206049}
+          - {flight_iata: "AR1774", flag: "AR", lat: -25.68102, lng: -54.708376, alt: 1556, speed: 444, v_speed: 2, squawk: null, status: en-route, airline_iata: "AR", dep_iata: "EZE", arr_iata: "IGR", reg_number: "LV-FRQ", type: "adsb", updated: 1723206049, _dlt_load_id: "1744372569.2028034"}
+          - {flight_iata: "AR1774", flag: "AR", lat: -25.68102, lng: -54.708376, alt: 1556, speed: 444, v_speed: 2, squawk: null, status: en-route, airline_iata: "AR", dep_iata: "EZE", arr_iata: "IGR", reg_number: "LV-FRQ", type: "adsb", updated: 1723206049, _dlt_load_id: "1744372569.2028034"}
+          - {flight_iata: "AR1304", flag: "AR", lat: -28.723273, lng: null, alt: 11000, speed: 851, v_speed: 4, squawk: null, status: en-route, airline_iata: "AR", dep_iata: "EZE", arr_iata: "MIA", reg_number: "LV-KAN", type: "adsb", updated: 1723206049, _dlt_load_id: "1744372569.2028034"}
+          - {flight_iata: "AR1815", flag: "AR", lat: -24.6234, lng: -14.62453, alt: 1665, speed: 523, v_speed: 3, squawk: null, status: en-route, airline_iata: "AR", dep_iata: "AEP", arr_iata: "CQN", reg_number: "LV-TEC", type: "adsb", updated: 1723206036, _dlt_load_id: "1744372415.5011466"}
     expect:
       rows:
           - {flight_iata_code: "AR1774", country_code: "AR", latitude: -25.68102, longitude: -54.708376, altitude_meters: 1556, speed_horizontal: 444, speed_vertical: 2, squawk_signal_code: null, flight_status: en-route, airline_iata_code: "AR", departure_airport_iata_code: "EZE", arrival_airport_iata_code: "IGR", aircraft_registration_number: "LV-FRQ", aircraft_type: "adsb", event_timestamp: "2024-08-09 12:20:49+00:00"}

@@ -67,10 +67,11 @@ unit_tests:
     given:
       - input: source('raw', 'airports')
         rows:
-          - {iata_code: "EZE", name: "Buenos Aires - Ministro Pistarini International Airport", lat: -34.82222, lng: -58.53583, country_code: "AR"}
-          - {iata_code: "BER", name: "Berlin Brandenburg Airport", lat: 52.36213, lng: 13.50168, country_code: "DE"}
-          - {iata_code: "BER", name: "Berlin Regional Airport", lat: 52.36213, lng: 13.50168, country_code: "DE"}
-          - {iata_code: null, name: "Fake Airport", lat: -31.7345, lng: -22.4464, country_code: "DE"}
+          - {iata_code: "EZE", name: "Buenos Aires - Ministro Pistarini International Airport", lat: -34.82222, lng: -58.53583, country_code: "AR", _dlt_load_id: "1744372569.2028034"}
+          - {iata_code: "BER", name: "Berlin Brandenburg Airport", lat: 52.36213, lng: 13.50168, country_code: "DE", _dlt_load_id: "1744372569.2028034"}
+          - {iata_code: "BER", name: "Berlin Regional Airport", lat: 52.36213, lng: 13.50168, country_code: "DE", _dlt_load_id: "1744372569.2028034"}
+          - {iata_code: null, name: "Fake Airport", lat: -31.7345, lng: -22.4464, country_code: "DE", _dlt_load_id: "1744372569.2028034"}
+          - {iata_code: "ABU", name: "A. A. Bere Tallo Airport", lat:  -9.07468, lng: 124.90477, country_code: "ID", _dlt_load_id: "1744372415.5011466"}
     expect:
       rows:
           - {iata_code: "EZE", name: "Buenos Aires - Ministro Pistarini International Airport", latitude: -34.82222, longitude: -58.53583, country_code: "AR"}

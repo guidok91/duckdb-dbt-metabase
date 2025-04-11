@@ -1,7 +1,6 @@
 {{ config(
     alias='flight_positions',
-    materialized='incremental',
-    incremental_strategy='append',
+    unique_key=['flight_iata_code', 'event_timestamp']
 ) }}
 
 SELECT
@@ -27,7 +26,12 @@ WHERE
     flight_iata_code IS NOT NULL
     AND latitude IS NOT NULL
     AND longitude IS NOT NULL
+    AND _dlt_load_id::decimal = (
+        SELECT MAX(_dlt_load_id::decimal) -- noqa: disable=RF02
+        FROM
+            {{ source('raw', 'flight_positions') }}
+    )
 QUALIFY ROW_NUMBER() OVER (
-    PARTITION BY flight_iata_code
+    PARTITION BY flight_iata_code, event_timestamp
     ORDER BY event_timestamp DESC
 ) = 1
