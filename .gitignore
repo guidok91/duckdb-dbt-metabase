@@ -148,5 +148,6 @@ dbt/core
 # dlt
 # ignore secrets, virtual environments and typical python compilation artifacts
 secrets.toml
+.user.yml
 # ignore duckdb
 *.wal
