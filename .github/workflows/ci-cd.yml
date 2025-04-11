@@ -23,28 +23,36 @@ jobs:
       with:
         python-version: 3.12
 
-    - name: Install dependencies
-      working-directory: ./dbt-dlt
-      run: make deps && make dbt-deps
+    - name: Install dlt dependencies
+      working-directory: ./dlt
+      run: make deps
 
-    - name: Run linter
-      working-directory: ./dbt-dlt
+    - name: Run dlt linter
+      working-directory: ./dlt
       run: make lint
 
     - name: Ingest raw data
-      working-directory: ./dbt-dlt
+      working-directory: ./dlt
       env:
         AIRLABS_API_KEY: ${{ secrets.AIRLABS_API_KEY }}
       run: make dlt-ingest-source-data
 
+    - name: Install dbt dependencies
+      working-directory: ./dbt
+      run: make deps && make dbt-deps
+
+    - name: Run dbt linter
+      working-directory: ./dbt
+      run: make lint
+
     - name: Run dbt models
-      working-directory: ./dbt-dlt
+      working-directory: ./dbt
       run: make dbt-run
 
     - name: Run dbt unit tests
-      working-directory: ./dbt-dlt
+      working-directory: ./dbt
       run: make dbt-test-unit
 
     - name: Run dbt data tests
-      working-directory: ./dbt-dlt
+      working-directory: ./dbt
       run: make dbt-test-data
